@@ -1,0 +1,10 @@
+{One_D: 
+		{simple: 
+				{fullstop: [sentences],
+				comma: [sentences]}
+		{en: 
+				{fullstop: [sentences],
+				comma: [sentences]}
+		}
+	}
+}  
