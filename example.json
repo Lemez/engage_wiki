@@ -8,3 +8,18 @@
 		}
 	}
 }  
+
+
+{ band: One Direction,
+  simple_url:		,
+  en_url:			,
+  data: 		
+  		{simple: 
+				{fullstop: [sentences],
+				comma: [sentences]}
+		{en: 
+				{fullstop: [sentences],
+				comma: [sentences]}
+
+
+						}

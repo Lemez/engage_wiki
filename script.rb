@@ -32,7 +32,7 @@ require_relative './string'
 @min = Time.now.min
 
 def get_sentences 
-	@file = open("./results_#{@min}-#{@secs}.txt", "w") if @writing
+	@file = open("./5_results_#{@min}-#{@secs}.txt", "w") if @writing
 
 	@bands.each do |band|
 		p "fetching #{band}"
@@ -74,16 +74,17 @@ def get_sentences
 					# p sentence if a!=sentence
 
 					next if sentence[0] != sentence[0].upcase
+					next unless sentence.starts_with_a_capital
 
-					@full_stop_array << sentence if sentence.include?("\.")
-					@comma_array << sentence if sentence.include?(",")
-					@semicolon_array << sentence if sentence.include?(";")
-					@colon_array << sentence if sentence.include?(":")
-					@question_array << sentence if sentence.include?("?")
-					@excl_array << sentence if sentence.include?("!")
-					@single_quote_array << sentence if sentence.include?("\'")
-					@double_quote_array << sentence if sentence.include?('"')
-					@hyphen_array << sentence if sentence.include?("-")	
+					@full_stop_array << sentence if sentence.include?("\.") and @full_stop_array.length<5 
+					@comma_array << sentence if sentence.include?(",") and @comma_array.length<5
+					@semicolon_array << sentence if sentence.include?(";") and @semicolon_array.length<5
+					@colon_array << sentence if sentence.include?(":") and @colon_array.length<5
+					@question_array << sentence if sentence.include?("?") and @question_array.length<5
+					@excl_array << sentence if sentence.include?("!") and @excl_array.length<5
+					@single_quote_array << sentence if sentence.include?("\'") and @single_quote_array.length<5
+					@double_quote_array << sentence if sentence.include?('"') and @double_quote_array.length<5
+					@hyphen_array << sentence if sentence.include?("-")	and @hyphen_array.length<5
 					
 				end
 			end
@@ -102,6 +103,7 @@ def get_sentences
 		end	
 		@results_hash[band] = @site_hash
 		p "completed #{band}"
+		p "******"
 		
 	end
 
