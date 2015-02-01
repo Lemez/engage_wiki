@@ -11,8 +11,8 @@ require 'net/http'
 require 'open-uri'
 require 'awesome_print'
 require "addressable/uri"
-require_relative './uri'
-require_relative './string'
+require_relative './lib/uri'
+require_relative './lib/string'
 
 
 # extract band name from spreadsheet
@@ -32,7 +32,7 @@ require_relative './string'
 @min = Time.now.min
 
 def get_sentences 
-	@file = open("./5_results_#{@min}-#{@secs}.txt", "w") if @writing
+	@file = open(".results/5_results_#{@min}-#{@secs}.txt", "w") if @writing
 
 	@bands.each do |band|
 		p "fetching #{band}"
